@@ -6,7 +6,7 @@ import AwardList from '~/components/AwardList.astro';
 import {
   C_AND_E_AI_LEADER_AWARD_URL,
   C_AND_E_AI_PIONEER_AWARD_URL,
-  FEATURED_MEDIA,
+  MEDIA_HITS,
 } from '~/config/links';
 
 const title = 'Speaking and Awards — Jonathan Barnes';
@@ -15,12 +15,12 @@ const description =
 
 const aiAwards = [
   {
-    name: '2025 AI Leader of the Year',
+    name: 'AI Leader of the Year, 2025',
     org: 'Campaigns & Elections — CampaignTech Awards',
     href: C_AND_E_AI_LEADER_AWARD_URL,
   },
   {
-    name: '2026 AI Pioneer of the Year',
+    name: 'AI Pioneer of the Year, 2026',
     org: 'Campaigns & Elections — Reed Awards',
     href: C_AND_E_AI_PIONEER_AWARD_URL,
   },
@@ -29,17 +29,15 @@ const aiAwards = [
 const broaderAwards = [
   {
     name: 'Multiple Campaigns & Elections and AAPC Pollie awards for campaign technology, digital strategy, and platform work',
-    org: 'Campaigns & Elections',
   },
 ];
 
-const featuredMedia = [
-  {
-    name: FEATURED_MEDIA.title,
-    org: FEATURED_MEDIA.publication,
-    href: FEATURED_MEDIA.url,
-  },
-];
+const mediaItems = MEDIA_HITS.map((hit) => ({
+  name: hit.title,
+  org: hit.publication,
+  year: hit.year,
+  href: hit.url,
+}));
 ---
 
 <Layout title={title} description={description} path="/speaking-awards">
@@ -70,7 +68,7 @@ const featuredMedia = [
       </p>
 
       <h2 id="media">Media</h2>
-      <AwardList items={featuredMedia} ariaLabel="Featured media coverage" />
+      <AwardList items={mediaItems} ariaLabel="Media coverage" />
       </div>
     </div>
   </article>
