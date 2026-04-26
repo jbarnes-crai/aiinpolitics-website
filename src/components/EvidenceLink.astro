@@ -1,0 +1,19 @@
+---
+/**
+ * A small wrapper for citation links so every external proof point is
+ * marked up consistently and is easy to audit.
+ */
+export interface Props {
+  href: string;
+  label?: string;
+  external?: boolean;
+}
+
+const { href, label, external = true } = Astro.props;
+const rel = external ? 'noopener' : undefined;
+const target = external ? '_blank' : undefined;
+---
+
+<a href={href} rel={rel} target={target} class="evidence-link">
+  <slot>{label ?? href}</slot>
+</a>

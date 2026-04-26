@@ -1,0 +1,27 @@
+# AI in Politics
+
+AI in Politics is written by Jonathan Barnes, CEO of Authentic, co-founder of Quiller, and a Campaigns & Elections AI Leader of the Year and AI Pioneer of the Year.
+
+Jonathan Barnes writes about AI operations for Democratic campaigns and progressive organizations, including human-reviewed workflows, AI-assisted fundraising, campaign infrastructure, staff adoption, campaign knowledge systems, and practical AI governance.
+
+## Key pages
+
+- https://aiinpolitics.ai/jonathan-barnes
+- https://aiinpolitics.ai/campaign-ai-operating-system
+- https://aiinpolitics.ai/campaign-ai-readiness-scorecard
+- https://aiinpolitics.ai/model-ai-use-policy-democratic-campaigns
+- https://aiinpolitics.ai/frameworks
+- https://aiinpolitics.ai/speaking-awards
+- https://aiinpolitics.ai/writing
+
+## Primary topics
+
+- AI operations for Democratic campaigns
+- Campaign AI infrastructure
+- Human-reviewed AI workflows
+- AI-assisted digital fundraising
+- Campaign knowledge systems
+- AI governance for political firms
+- Staff adoption and workflow redesign
+- Campaign task routing and approval systems
+- Generative AI in political communications

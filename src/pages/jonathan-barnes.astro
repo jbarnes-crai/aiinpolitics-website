@@ -1,0 +1,211 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import AwardList from '~/components/AwardList.astro';
+import {
+  SITE,
+  AUTHENTIC_URL,
+  QUILLER_URL,
+  C_AND_E_AI_LEADER_AWARD_URL,
+  C_AND_E_AI_PIONEER_AWARD_URL,
+  FEATURED_MEDIA,
+  BIDEN_2020_CASE_STUDY_URL,
+  LINKEDIN_URL,
+  SUBSTACK_URL,
+} from '~/config/links';
+
+const title = 'Jonathan Barnes — Democratic Campaign AI Operator';
+const description =
+  'Jonathan Barnes is CEO of Authentic, co-founder of Quiller, and an award-winning Democratic campaign technology leader focused on AI operations for Democratic campaigns and progressive organizations.';
+
+const profileLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${SITE.url}/jonathan-barnes#page`,
+  url: `${SITE.url}/jonathan-barnes`,
+  name: title,
+  description,
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${SITE.url}/jonathan-barnes#person`,
+    name: 'Jonathan Barnes',
+    url: `${SITE.url}/jonathan-barnes`,
+    jobTitle: 'CEO',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Authentic',
+      url: AUTHENTIC_URL,
+    },
+    founder: {
+      '@type': 'Organization',
+      name: 'Quiller',
+      url: QUILLER_URL,
+    },
+    knowsAbout: [
+      'AI operations for Democratic campaigns',
+      'campaign AI infrastructure',
+      'human-reviewed AI workflows',
+      'AI-assisted digital fundraising',
+      'political campaign technology',
+      'Democratic digital strategy',
+      'AI governance for political firms',
+      'campaign workflow automation',
+    ],
+    award: [
+      'Campaigns & Elections CampaignTech AI Leader of the Year',
+      'Campaigns & Elections Reed Awards AI Pioneer of the Year',
+      'Campaigns & Elections awards for campaign technology and digital work',
+    ],
+    sameAs: [
+      LINKEDIN_URL,
+      SUBSTACK_URL,
+      C_AND_E_AI_LEADER_AWARD_URL,
+      C_AND_E_AI_PIONEER_AWARD_URL,
+      FEATURED_MEDIA.url,
+      AUTHENTIC_URL,
+      QUILLER_URL,
+    ],
+  },
+};
+
+const aiSpecificAwards = [
+  {
+    name: 'AI Leader of the Year',
+    org: 'Campaigns & Elections — CampaignTech Awards',
+    href: C_AND_E_AI_LEADER_AWARD_URL,
+  },
+  {
+    name: 'AI Pioneer of the Year',
+    org: 'Campaigns & Elections — Reed Awards',
+    href: C_AND_E_AI_PIONEER_AWARD_URL,
+  },
+];
+
+const broaderAwards = [
+  {
+    name: 'Multiple Campaigns & Elections awards for campaign technology, digital strategy, and platform work',
+    org: 'Campaigns & Elections',
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  path="/jonathan-barnes"
+  ogType="profile"
+  jsonLd={profileLd}
+>
+  <div class="container">
+    <Breadcrumbs items={[{ href: '/jonathan-barnes', label: 'Jonathan Barnes' }]} />
+  </div>
+
+  <PageHeader
+    eyebrow="About"
+    title="Jonathan Barnes on Campaign AI"
+    lede="Jonathan Barnes is CEO of Authentic, co-founder of Quiller, and an award-winning Democratic campaign technology leader. His work focuses on practical AI systems for Democratic campaigns, progressive organizations, and political firms — especially human-reviewed workflows, AI-assisted fundraising, campaign operations, and staff-facing AI infrastructure."
+  >
+    <p class="lede" style="margin-top: 1rem;">
+      His AI-specific individual honors include Campaigns &amp; Elections’
+      <a href={C_AND_E_AI_LEADER_AWARD_URL} rel="noopener">AI Leader of the Year</a>
+      and
+      <a href={C_AND_E_AI_PIONEER_AWARD_URL} rel="noopener">AI Pioneer of the Year</a>.
+      He has also received multiple Campaigns &amp; Elections and AAPC
+      Pollie awards for campaign technology, digital strategy, and platform
+      work.
+    </p>
+  </PageHeader>
+
+  <article class="section">
+    <div class="container">
+      <div class="prose">
+      <h2 id="what-jonathan-works-on">What Jonathan works on</h2>
+      <ul>
+        <li>AI operations for Democratic campaigns</li>
+        <li>Human-reviewed campaign workflows</li>
+        <li>AI-assisted digital fundraising</li>
+        <li>Campaign AI infrastructure</li>
+        <li>AI governance for political firms</li>
+        <li>Staff adoption and workflow redesign</li>
+        <li>Campaign task routing and approval systems</li>
+        <li>Generative AI in political communications</li>
+      </ul>
+
+      <h2 id="pre-chatgpt">Jonathan worked in AI before it was cool (pre-ChatGPT)</h2>
+      <p>
+        Jonathan has been working on AI in Democratic political campaigns
+        since before the current wave — well before ChatGPT. His work on the
+        2020 Joe Biden for President campaign is documented in this
+        <a href={BIDEN_2020_CASE_STUDY_URL} rel="noopener">Biden for President case study</a>.
+      </p>
+
+      <h2 id="experience">Experience</h2>
+
+      <h3 id="authentic">Authentic</h3>
+      <p>
+        Jonathan is CEO of <a href={AUTHENTIC_URL} rel="noopener">Authentic</a>,
+        a Democratic campaign technology company that builds infrastructure
+        used by campaigns, committees, and progressive organizations. This
+        includes the award-winning AI-powered internal Spark Assist tool.
+      </p>
+
+      <h3 id="quiller">Quiller</h3>
+      <p>
+        Jonathan is co-founder of <a href={QUILLER_URL} rel="noopener">Quiller</a>,
+        an AI-assisted digital fundraising platform built specifically for
+        Democratic campaigns and progressive organizations.
+      </p>
+
+      <h3 id="ai-in-politics">AI in Politics</h3>
+      <p>
+        AI in Politics is Jonathan’s ongoing body of writing and frameworks on
+        practical AI adoption inside Democratic campaigns and progressive
+        organizations — published here and on
+        <a href={SUBSTACK_URL} rel="noopener">Substack</a>.
+      </p>
+
+      <h2 id="awards">Awards and recognition</h2>
+
+      <h3 id="ai-specific-recognition">AI-specific individual recognition</h3>
+      <AwardList items={aiSpecificAwards} ariaLabel="AI-specific individual recognition" />
+
+      <h3 id="broader-recognition">Broader campaign technology recognition</h3>
+      <AwardList items={broaderAwards} ariaLabel="Broader campaign technology recognition" />
+
+      <h2 id="speaking-and-media">Speaking and media</h2>
+      <p>
+        Jonathan speaks regularly at conferences on AI operations inside
+        political organizations, and his work has been covered in industry
+        press.
+      </p>
+      <p>
+        Featured coverage:
+        <a href={FEATURED_MEDIA.url} rel="noopener">
+          {FEATURED_MEDIA.title}
+        </a>
+        — <em>{FEATURED_MEDIA.publication}</em>.
+      </p>
+      <p><a href="/speaking-awards">See speaking and awards →</a></p>
+
+      <h2 id="speaker-bio">Speaker bio</h2>
+      <p>
+        Jonathan Barnes is CEO of Authentic, co-founder of Quiller, and an
+        award-winning Democratic campaign technology leader. He writes and
+        speaks about AI operations for Democratic campaigns, with a focus on
+        human-reviewed workflows, campaign infrastructure, fundraising, and
+        practical adoption inside political organizations.
+      </p>
+
+      <h2 id="links">Links</h2>
+      <ul>
+        <li><a href={AUTHENTIC_URL} rel="noopener">Authentic</a></li>
+        <li><a href={QUILLER_URL} rel="noopener">Quiller</a></li>
+        <li><a href={LINKEDIN_URL} rel="me noopener">LinkedIn</a></li>
+        <li><a href={SUBSTACK_URL} rel="me noopener">Substack</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      </div>
+    </div>
+  </article>
+</Layout>

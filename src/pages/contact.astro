@@ -1,0 +1,43 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import { LINKEDIN_URL, SUBSTACK_URL } from '~/config/links';
+
+const title = 'Contact — AI in Politics';
+const description =
+  'Contact Jonathan Barnes for speaking, media, and consulting inquiries on AI operations for Democratic campaigns and progressive organizations.';
+---
+
+<Layout title={title} description={description} path="/contact">
+  <div class="container">
+    <Breadcrumbs items={[{ href: '/contact', label: 'Contact' }]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Contact"
+    title="Get in touch"
+    lede="For speaking, media, and consulting inquiries about AI operations for Democratic campaigns, progressive organizations, and political firms, reach Jonathan on LinkedIn."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+      <h2 id="elsewhere">Where to reach Jonathan</h2>
+      <ul>
+        <li><a href={LINKEDIN_URL} rel="me noopener">LinkedIn</a> — best for direct inquiries</li>
+        <li><a href={SUBSTACK_URL} rel="me noopener">Substack</a> — subscribe for new writing</li>
+      </ul>
+
+      <h2 id="speaker-bio">Speaker bio</h2>
+      <p>
+        Jonathan Barnes is CEO of Authentic, co-founder of Quiller, and an
+        award-winning Democratic campaign technology leader. He writes and
+        speaks about AI operations for Democratic campaigns, with a focus on
+        human-reviewed workflows, campaign infrastructure, fundraising, and
+        practical adoption inside political organizations.
+      </p>
+      </div>
+    </div>
+  </section>
+</Layout>

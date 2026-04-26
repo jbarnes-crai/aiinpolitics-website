@@ -1,0 +1,83 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import ArticleCard from '~/components/ArticleCard.astro';
+import { SUBSTACK_URL } from '~/config/links';
+
+const title = 'Writing — AI in Politics';
+const description =
+  'Essays by Jonathan Barnes on AI operations for Democratic campaigns and progressive organizations — practical adoption, human-reviewed workflows, and what is actually working inside political organizations.';
+
+const essays = [
+  {
+    title: 'Campaigns Don’t Need More AI Tools. They Need an AI Operating System.',
+    description:
+      'Why the next phase of political AI is operational, not tool-by-tool — and the five layers campaigns need to put in place.',
+    href: SUBSTACK_URL,
+    meta: 'Featured',
+  },
+  {
+    title: 'What Quiller and Authentic Taught Me About Campaign AI.',
+    description:
+      'Lessons from building campaign technology that staff actually use — and the failure modes that kill AI adoption inside campaigns.',
+    href: SUBSTACK_URL,
+    meta: 'Essay',
+  },
+  {
+    title: 'Why AI Adoption Fails in Political Organizations.',
+    description:
+      'A field guide to the patterns that quietly stall AI inside campaigns and firms — and the operational fixes that move it forward.',
+    href: SUBSTACK_URL,
+    meta: 'Essay',
+  },
+  {
+    title: 'Where AI Belongs in Each Campaign Department.',
+    description:
+      'A department-by-department view of what AI should and should not touch — fundraising, comms, field, digital, research, operations, and finance.',
+    href: SUBSTACK_URL,
+    meta: 'Essay',
+  },
+];
+---
+
+<Layout title={title} description={description} path="/writing">
+  <div class="container">
+    <Breadcrumbs items={[{ href: '/writing', label: 'Writing' }]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Writing"
+    title="Essays on campaign AI operations"
+    lede="Practical writing on how Democratic campaigns, progressive organizations, and political firms can adopt AI without losing control — written for the people actually doing the work."
+  >
+    <p style="margin-top: 1rem;">
+      <a href={SUBSTACK_URL} rel="noopener" class="btn btn-primary">
+        Subscribe on Substack
+      </a>
+    </p>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <h2>Featured essays</h2>
+      <div class="card-grid cols-2">
+        {essays.map((e) => (
+          <ArticleCard
+            href={e.href}
+            title={e.title}
+            description={e.description}
+            meta={e.meta}
+            external
+          />
+        ))}
+      </div>
+      <p style="margin-top: 1.5rem;">
+        New essays are published on
+        <a href={SUBSTACK_URL} rel="noopener">the AI in Politics Substack</a>.
+        Replace the placeholder links above with canonical post URLs as they
+        publish.
+      </p>
+    </div>
+  </section>
+</Layout>

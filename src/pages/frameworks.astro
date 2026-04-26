@@ -1,0 +1,58 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import FrameworkCard from '~/components/FrameworkCard.astro';
+
+const title = 'Campaign AI Frameworks — AI in Politics';
+const description =
+  'Practical frameworks from Jonathan Barnes for moving Democratic campaigns and progressive organizations from scattered AI experiments to operational AI systems with clear human review.';
+---
+
+<Layout title={title} description={description} path="/frameworks">
+  <div class="container">
+    <Breadcrumbs items={[{ href: '/frameworks', label: 'Frameworks' }]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Frameworks"
+    title="Campaign AI Frameworks"
+    lede="Most campaign AI conversations focus on individual tools: which model writes copy, which platform generates ads, which chatbot can summarize research. Those questions matter, but they are not enough."
+  >
+    <p class="lede" style="margin-top: 1rem;">
+      The next challenge is operational: how campaigns organize knowledge,
+      tasks, human review, approvals, and decisions around AI.
+    </p>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid cols-2">
+        <FrameworkCard
+          href="/campaign-ai-operating-system"
+          meta="Flagship framework"
+          title="The Campaign AI Operating System"
+          description="A five-layer framework for moving campaigns from scattered AI experiments to human-reviewed workflows: trusted knowledge, defined tasks, human review, decision rights, and a staff-facing interface."
+        />
+        <FrameworkCard
+          href="/campaign-ai-readiness-scorecard"
+          meta="Self-assessment"
+          title="Campaign AI Readiness Scorecard"
+          description="A practical 10-category self-assessment for campaigns, firms, and progressive organizations evaluating whether they are ready to use AI responsibly and effectively."
+        />
+        <FrameworkCard
+          href="/model-ai-use-policy-democratic-campaigns"
+          meta="Policy template"
+          title="Model AI Use Policy"
+          description="A practical policy template for Democratic campaigns and political firms that need clear rules around AI use, human review, public-facing content, sensitive data, and compliance escalation."
+        />
+        <FrameworkCard
+          href="/writing"
+          meta="Brief"
+          title="Democratic Campaign AI Adoption Brief"
+          description="An ongoing brief for campaign managers, executive directors, and firm partners on what is actually working — and what is not — when political organizations adopt AI."
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

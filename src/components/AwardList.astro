@@ -1,0 +1,36 @@
+---
+export interface AwardItem {
+  name: string;
+  org?: string;
+  year?: string;
+  href?: string;
+  note?: string;
+}
+
+export interface Props {
+  items: ReadonlyArray<AwardItem>;
+  ariaLabel?: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+
+<ul class="award-list" aria-label={ariaLabel}>
+  {items.map((item) => (
+    <li>
+      <span class="name">
+        {item.href ? (
+          <a href={item.href} rel="noopener">{item.name}</a>
+        ) : (
+          item.name
+        )}
+      </span>
+      {(item.org || item.year) && (
+        <span class="org">
+          {[item.org, item.year].filter(Boolean).join(' · ')}
+        </span>
+      )}
+      {item.note && <span class="org">{item.note}</span>}
+    </li>
+  ))}
+</ul>

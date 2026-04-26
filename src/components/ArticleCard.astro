@@ -1,0 +1,20 @@
+---
+export interface Props {
+  href: string;
+  title: string;
+  description: string;
+  meta?: string;
+  external?: boolean;
+}
+
+const { href, title, description, meta, external = false } = Astro.props;
+const rel = external ? 'noopener' : undefined;
+const target = external ? '_blank' : undefined;
+---
+
+<a href={href} rel={rel} target={target} class="card">
+  {meta && <span class="meta">{meta}</span>}
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="card-cta" aria-hidden="true">Read essay →</span>
+</a>

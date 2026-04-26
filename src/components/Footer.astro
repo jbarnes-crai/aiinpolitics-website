@@ -1,0 +1,25 @@
+---
+import { SITE, LINKEDIN_URL, SUBSTACK_URL } from '~/config/links';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-tagline">
+      <strong>{SITE.name}</strong> — practical AI strategy for Democratic
+      campaigns and progressive organizations, written by Jonathan Barnes.
+    </p>
+    <ul class="footer-links">
+      <li><a href="/jonathan-barnes">About Jonathan</a></li>
+      <li><a href="/frameworks">Frameworks</a></li>
+      <li><a href="/campaign-ai-operating-system">Operating System</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/speaking-awards">Speaking &amp; Awards</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href={LINKEDIN_URL} rel="me noopener">LinkedIn</a></li>
+      <li><a href={SUBSTACK_URL} rel="me noopener">Substack</a></li>
+    </ul>
+    <p class="footer-meta">© {year} {SITE.name}. All rights reserved.</p>
+  </div>
+</footer>

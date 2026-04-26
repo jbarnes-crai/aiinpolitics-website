@@ -1,0 +1,158 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+
+const title = 'Model AI Use Policy for Democratic Campaigns and Political Firms — AI in Politics';
+const description =
+  'A practical AI use policy template for Democratic campaigns and political firms — covering approved uses, prohibited uses, human review, public-facing content, sensitive data, compliance escalation, training, and incident response.';
+
+const sections = [
+  {
+    id: 'approved-uses',
+    title: '1. Approved uses',
+    body: [
+      'Internal drafting and summarization (memos, research, briefings).',
+      'First-pass drafts of fundraising emails, scripts, and digital copy that will be reviewed by a named human owner.',
+      'Synthesis of public information (news, polling, opposition research) for staff use.',
+      'Operational tasks: meeting notes, agendas, scheduling drafts, internal Q&A.',
+      'Code, data, and analytics support for internal tools where outputs are reviewed.',
+    ],
+  },
+  {
+    id: 'prohibited-uses',
+    title: '2. Prohibited uses',
+    body: [
+      'Generating final public-facing content without a human reviewer of record.',
+      'Creating deceptive synthetic audio, video, or imagery of any real person.',
+      'Submitting protected, regulated, or privileged information into third-party tools that are not contractually approved.',
+      'Producing legal, compliance, or financial conclusions presented as authoritative.',
+      'Targeting individuals based on protected characteristics in ways that violate law or platform policy.',
+    ],
+  },
+  {
+    id: 'required-human-review',
+    title: '3. Required human review',
+    body: [
+      'All public-facing communications must be reviewed and approved by a named human before publication.',
+      'High-stakes outputs (legal, financial, candidate voice, paid media, donor communications) require a second reviewer.',
+      'Reviewers must be empowered to reject, edit, or escalate any AI-assisted output.',
+    ],
+  },
+  {
+    id: 'public-facing-content',
+    title: '4. Public-facing content rules',
+    body: [
+      'Candidate voice content requires explicit candidate or principal sign-off, not just staff approval.',
+      'Imagery and video involving real people must be authentic or clearly labeled per platform and legal rules.',
+      'Statistical, factual, and historical claims must be source-checked before release.',
+    ],
+  },
+  {
+    id: 'sensitive-data',
+    title: '5. Sensitive data rules',
+    body: [
+      'No donor PII, voter file records, or regulated data into non-approved AI tools.',
+      'No client-confidential strategy memos into consumer AI products without contractual data protections.',
+      'Use approved enterprise tools, with data-use settings configured for the campaign or firm.',
+    ],
+  },
+  {
+    id: 'legal-escalation',
+    title: '6. Legal/compliance escalation',
+    body: [
+      'Any FEC, FCC, state election, or platform-policy question raised by AI use must be escalated to designated counsel before action.',
+      'Disclaimers, paid-for-by language, and required disclosures are the responsibility of human reviewers, not the model.',
+    ],
+  },
+  {
+    id: 'client-approval',
+    title: '7. Client/candidate approval',
+    body: [
+      'Firms must obtain client consent for AI-assisted work that touches the client’s brand, voice, or data.',
+      'Candidates must be briefed on what AI is used for, by whom, and where the human checkpoints sit.',
+    ],
+  },
+  {
+    id: 'disclosure-logging',
+    title: '8. Disclosure and logging expectations',
+    body: [
+      'Maintain an internal log of AI use categories, tools, and reviewers — proportional to the size of the operation.',
+      'Disclose AI use to clients, vendors, and partners where contracts or platform policies require it.',
+      'Be prepared to answer, in plain language, what AI did and what a human did for any output.',
+    ],
+  },
+  {
+    id: 'staff-training',
+    title: '9. Staff training',
+    body: [
+      'Every staff member with AI access receives role-appropriate training before use.',
+      'Training covers approved tools, prohibited uses, sensitive data handling, and the human-review checkpoints for their role.',
+      'Refresh training when tools, policies, or election rules change.',
+    ],
+  },
+  {
+    id: 'incident-response',
+    title: '10. Incident response',
+    body: [
+      'Any incident — leak, hallucinated public claim, deceptive content, data exposure — is reported to the designated AI owner within 24 hours.',
+      'A short post-incident review identifies root cause, affected systems, and the policy or training change needed.',
+      'Repeat incidents trigger a tool, vendor, or workflow review.',
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description} path="/model-ai-use-policy-democratic-campaigns">
+  <div class="container">
+    <Breadcrumbs items={[
+      { href: '/frameworks', label: 'Frameworks' },
+      { href: '/model-ai-use-policy-democratic-campaigns', label: 'Model AI Use Policy' },
+    ]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Policy template"
+    title="Model AI Use Policy for Democratic Campaigns and Political Firms"
+    lede="A practical policy template for campaigns and firms that need clear rules around AI use, human review, public-facing content, sensitive data, compliance escalation, and staff training."
+  />
+
+  <article class="section">
+    <div class="container">
+      <div class="prose">
+      <p class="note">
+        <strong>Important:</strong> This is an operational template, not legal
+        advice. Adapt it with your campaign’s or firm’s counsel, compliance
+        team, and senior leadership before adopting.
+      </p>
+
+      {sections.map((s) => (
+        <section aria-labelledby={s.id}>
+          <h2 id={s.id}>{s.title}</h2>
+          <ul>
+            {s.body.map((line) => <li>{line}</li>)}
+          </ul>
+        </section>
+      ))}
+
+      <hr />
+
+      <h2 id="related">Related frameworks</h2>
+      <ul>
+        <li>
+          <a href="/campaign-ai-operating-system">
+            The Campaign AI Operating System
+          </a>
+          — the structural framework this policy sits on top of.
+        </li>
+        <li>
+          <a href="/campaign-ai-readiness-scorecard">
+            Campaign AI Readiness Scorecard
+          </a>
+          — assess where your organization sits today.
+        </li>
+      </ul>
+      </div>
+    </div>
+  </article>
+</Layout>

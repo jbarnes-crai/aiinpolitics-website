@@ -1,0 +1,128 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+
+const title = 'Campaign AI Readiness Scorecard — AI in Politics';
+const description =
+  'A practical 10-category self-assessment for Democratic campaigns, political firms, and progressive organizations evaluating whether they are ready to use AI responsibly and effectively.';
+
+const categories = [
+  {
+    name: 'Trusted knowledge',
+    body: 'Does AI have access to the campaign’s real sources of truth — plan, budget, message guidance, donor history — and only those?',
+  },
+  {
+    name: 'Workflow clarity',
+    body: 'Are the specific tasks AI is allowed to do named, scoped, and documented, or is it ad-hoc?',
+  },
+  {
+    name: 'Human review',
+    body: 'Are the human checkpoints explicit and proportional to the risk of each task?',
+  },
+  {
+    name: 'Decision ownership',
+    body: 'For every kind of AI-assisted output, is there a named role accountable for the final call?',
+  },
+  {
+    name: 'Risk controls',
+    body: 'Are there clear rules for sensitive data, public-facing content, legal escalation, and incident response?',
+  },
+  {
+    name: 'Staff training',
+    body: 'Have staff received practical, role-specific training on the AI workflows they are expected to use?',
+  },
+  {
+    name: 'Adoption',
+    body: 'Are the AI workflows actually being used by the people they were designed for, or are they shelfware?',
+  },
+  {
+    name: 'Measurement',
+    body: 'Is the campaign measuring whether AI workflows save time, raise money, or improve quality — not just usage?',
+  },
+  {
+    name: 'Tool integration',
+    body: 'Do the AI tools connect to the systems staff already work in, or do they create another silo?',
+  },
+  {
+    name: 'Leadership accountability',
+    body: 'Is there a senior leader explicitly accountable for AI strategy, governance, and outcomes?',
+  },
+];
+
+const bands = [
+  { range: '10–20', label: 'Chaotic experimentation' },
+  { range: '21–35', label: 'Useful individual adoption' },
+  { range: '36–45', label: 'Operationally ready' },
+  { range: '46–50', label: 'Advanced and scalable' },
+];
+---
+
+<Layout title={title} description={description} path="/campaign-ai-readiness-scorecard">
+  <div class="container">
+    <Breadcrumbs items={[
+      { href: '/frameworks', label: 'Frameworks' },
+      { href: '/campaign-ai-readiness-scorecard', label: 'Campaign AI Readiness Scorecard' },
+    ]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Self-assessment"
+    title="Campaign AI Readiness Scorecard"
+    lede="A practical self-assessment for campaigns, firms, and progressive organizations evaluating whether they are ready to use AI responsibly and effectively."
+  />
+
+  <article class="section">
+    <div class="container">
+      <div class="prose">
+      <h2 id="how-to-use">How to use this scorecard</h2>
+      <p>
+        Score each of the ten categories from 1 (not in place) to 5 (in
+        place, working, and accountable). Add the totals; the band tells
+        you where you sit and where to invest first.
+      </p>
+
+      <h2 id="categories">The ten categories</h2>
+      <div class="scorecard">
+        {categories.map((cat, i) => (
+          <div class="scorecard-row">
+            <span class="scorecard-num" aria-hidden="true">{i + 1}</span>
+            <div>
+              <h3>{cat.name}</h3>
+              <p>{cat.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2 id="bands">Scoring bands</h2>
+      <div class="bands" aria-label="Scoring bands">
+        {bands.map((b) => (
+          <div class="band">
+            <span class="band-range">{b.range}</span>
+            <span>{b.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <hr />
+
+      <h2 id="related">Related frameworks</h2>
+      <ul>
+        <li>
+          <a href="/campaign-ai-operating-system">
+            The Campaign AI Operating System
+          </a>
+          — the underlying model the scorecard maps onto.
+        </li>
+        <li>
+          <a href="/model-ai-use-policy-democratic-campaigns">
+            Model AI Use Policy for Democratic Campaigns
+          </a>
+          — the operational rules that turn a high score into protection.
+        </li>
+      </ul>
+      </div>
+    </div>
+  </article>
+</Layout>

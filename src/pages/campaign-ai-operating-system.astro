@@ -1,0 +1,141 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import { SITE } from '~/config/links';
+
+const title = 'The Campaign AI Operating System — Jonathan Barnes';
+const description =
+  'A practical framework from Jonathan Barnes for moving Democratic campaigns from scattered AI experiments to human-reviewed campaign workflows.';
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'The Campaign AI Operating System',
+  description,
+  author: { '@id': `${SITE.url}/jonathan-barnes#person`, '@type': 'Person', name: 'Jonathan Barnes' },
+  publisher: { '@id': `${SITE.url}#org` },
+  mainEntityOfPage: `${SITE.url}/campaign-ai-operating-system`,
+  about: [
+    'AI operations for Democratic campaigns',
+    'human-reviewed AI workflows',
+    'campaign AI infrastructure',
+  ],
+};
+
+const layers = [
+  {
+    title: 'Trusted Knowledge',
+    body: 'What AI is allowed to know — the campaign’s sources of truth: the plan, the budget, the message guidance, the donor history, the field data, the legal guardrails. Not random documents. Not whatever happens to be in a chat window.',
+  },
+  {
+    title: 'Defined Tasks',
+    body: 'What AI is allowed to do — the specific tasks the campaign has decided AI can take on: drafting fundraising emails, summarizing research, prepping briefings, generating first-pass ad variations, triaging inbound. Defined, named, and bounded.',
+  },
+  {
+    title: 'Human Review',
+    body: 'What people must approve — the explicit checkpoints where a human reads, edits, and signs off before anything goes out the door. Different tasks need different review depth. The system should make that obvious, not optional.',
+  },
+  {
+    title: 'Decision Rights',
+    body: 'Who owns the final call — the named role accountable for each kind of output. AI can speed up the work, but a person owns the decision. Without clear ownership, AI just spreads ambiguity faster.',
+  },
+  {
+    title: 'Staff-Facing Interface',
+    body: 'Where work shows up — the surface where staff actually see tasks, drafts, approvals, and decisions. If AI output lives in a thousand chat threads, no one can manage it. Campaigns need an interface, not a tool sprawl.',
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  path="/campaign-ai-operating-system"
+  ogType="article"
+  jsonLd={articleLd}
+>
+  <div class="container">
+    <Breadcrumbs items={[
+      { href: '/frameworks', label: 'Frameworks' },
+      { href: '/campaign-ai-operating-system', label: 'The Campaign AI Operating System' },
+    ]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Flagship framework"
+    title="The Campaign AI Operating System"
+    lede="A practical framework for moving Democratic campaigns from scattered AI experiments to human-reviewed workflows."
+  />
+
+  <article class="section">
+    <div class="container">
+      <div class="prose">
+      <p>The first wave of political AI has been tool discovery.</p>
+      <p>
+        Which platform writes better fundraising copy? Which model can
+        summarize research? Which vendor added an AI button? Which tool can
+        generate ad variations, donor profiles, or message drafts?
+      </p>
+      <p>That phase was necessary. It is also insufficient.</p>
+      <p>
+        Campaigns do not lose time because they lack another AI tool. They
+        lose time because information is scattered, approvals are unclear,
+        senior staff become bottlenecks, and no one knows what work is ready
+        for human judgment.
+      </p>
+      <p>
+        The next phase of campaign AI is not about replacing staff with
+        software. It is about building an operating system for how campaign
+        work moves through people, tools, approvals, and decisions.
+      </p>
+
+      <h2 id="thesis">
+        Democratic campaigns need AI operating systems, not just AI tools.
+      </h2>
+      <p>
+        An operating system is the shared layer that makes individual tools
+        coherent. It defines what AI is allowed to know, what it is allowed
+        to do, where humans must step in, who owns the decision, and where
+        staff actually see the work. Five layers — in this order.
+      </p>
+
+      <h3 id="five-layers">The five layers</h3>
+      <ol class="layer-stack" aria-label="Five layers of the Campaign AI Operating System">
+        {layers.map((layer, i) => (
+          <li class="layer">
+            <span class="layer-num" aria-hidden="true">{i + 1}</span>
+            <div class="layer-body">
+              <h3>{layer.title}</h3>
+              <p>{layer.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <p>
+        When these layers are clear, AI can help campaigns move faster
+        without losing control. When they are missing, AI just makes
+        confusion more efficient.
+      </p>
+
+      <hr />
+
+      <h2 id="related">Related frameworks</h2>
+      <ul>
+        <li>
+          <a href="/campaign-ai-readiness-scorecard">
+            Campaign AI Readiness Scorecard
+          </a>
+          — assess where your campaign or organization sits today.
+        </li>
+        <li>
+          <a href="/model-ai-use-policy-democratic-campaigns">
+            Model AI Use Policy for Democratic Campaigns
+          </a>
+          — the operational rules that sit on top of the operating system.
+        </li>
+      </ul>
+      </div>
+    </div>
+  </article>
+</Layout>

@@ -1,0 +1,46 @@
+---
+import { SITE } from '~/config/links';
+
+export interface Props {
+  title: string;
+  description: string;
+  path: string; // e.g. "/jonathan-barnes"
+  ogType?: 'website' | 'article' | 'profile';
+  jsonLd?: unknown | unknown[];
+}
+
+const {
+  title,
+  description,
+  path,
+  ogType = 'website',
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(path, SITE.url).toString();
+
+// Normalize JSON-LD into an array of one or more graph objects.
+const ldArray = jsonLd
+  ? Array.isArray(jsonLd)
+    ? jsonLd
+    : [jsonLd]
+  : [];
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={SITE.name} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+{ldArray.map((node) => (
+  <script type="application/ld+json" set:html={JSON.stringify(node)} />
+))}

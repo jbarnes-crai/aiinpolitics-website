@@ -1,0 +1,17 @@
+---
+export interface Props {
+  href: string;
+  title: string;
+  description: string;
+  meta?: string;
+}
+
+const { href, title, description, meta } = Astro.props;
+---
+
+<a href={href} class="card">
+  {meta && <span class="meta">{meta}</span>}
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="card-cta" aria-hidden="true">Read framework →</span>
+</a>

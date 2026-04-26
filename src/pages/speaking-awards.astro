@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import AwardList from '~/components/AwardList.astro';
+import {
+  C_AND_E_AI_LEADER_AWARD_URL,
+  C_AND_E_AI_PIONEER_AWARD_URL,
+  FEATURED_MEDIA,
+} from '~/config/links';
+
+const title = 'Speaking and Awards — Jonathan Barnes';
+const description =
+  'Awards, speaking, and media for Jonathan Barnes — including Campaigns & Elections AI Leader of the Year, AI Pioneer of the Year, and multiple Campaigns & Elections awards for campaign technology and digital work.';
+
+const aiAwards = [
+  {
+    name: 'AI Leader of the Year',
+    org: 'Campaigns & Elections — CampaignTech Awards',
+    href: C_AND_E_AI_LEADER_AWARD_URL,
+  },
+  {
+    name: 'AI Pioneer of the Year',
+    org: 'Campaigns & Elections — Reed Awards',
+    href: C_AND_E_AI_PIONEER_AWARD_URL,
+  },
+];
+
+const broaderAwards = [
+  {
+    name: 'Multiple Campaigns & Elections awards for campaign technology, digital strategy, and platform work',
+    org: 'Campaigns & Elections',
+  },
+];
+
+const featuredMedia = [
+  {
+    name: FEATURED_MEDIA.title,
+    org: FEATURED_MEDIA.publication,
+    href: FEATURED_MEDIA.url,
+  },
+];
+---
+
+<Layout title={title} description={description} path="/speaking-awards">
+  <div class="container">
+    <Breadcrumbs items={[{ href: '/speaking-awards', label: 'Speaking & Awards' }]} />
+  </div>
+
+  <PageHeader
+    eyebrow="Public record"
+    title="Speaking and Awards"
+    lede="A structured record of recognition and press coverage for Jonathan Barnes’ work on AI operations in Democratic campaigns."
+  />
+
+  <article class="section">
+    <div class="container">
+      <div class="prose">
+      <h2 id="ai-recognition">AI-specific recognition</h2>
+      <AwardList items={aiAwards} ariaLabel="AI-specific awards" />
+
+      <h2 id="broader-awards">Broader awards</h2>
+      <AwardList items={broaderAwards} ariaLabel="Broader campaign technology and digital awards" />
+
+      <h2 id="speaking">Speaking</h2>
+      <p>
+        Jonathan has spoken at Campaigns &amp; Elections conferences about AI
+        operations inside political organizations. A full list of upcoming and
+        past engagements will be added here as it is finalized.
+      </p>
+
+      <h2 id="media">Media</h2>
+      <AwardList items={featuredMedia} ariaLabel="Featured media coverage" />
+      </div>
+    </div>
+  </article>
+</Layout>
